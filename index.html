@@ -421,7 +421,92 @@
             border-color: #FFFFFF;
         }
 
-        /* Footer */
+        /* --- Reviews Marquee Styling --- */
+        .marquee-container {
+            width: 100%;
+            overflow: hidden;
+            background-color: rgba(255, 255, 255, 0.03);
+            padding: 30px 0;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            margin-top: 40px;
+        }
+        
+        .marquee-title {
+            text-align: center;
+            color: #FFFFFF;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            letter-spacing: 0.5px;
+        }
+
+        .marquee-track {
+            display: flex;
+            width: max-content;
+            animation: scrollMarquee 35s linear infinite;
+        }
+
+        /* Pause marquee on hover so users can read */
+        .marquee-track:hover {
+            animation-play-state: paused;
+        }
+
+        .review-card {
+            background-color: rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            width: 320px;
+            padding: 20px;
+            border-radius: 8px;
+            margin-right: 25px;
+            flex-shrink: 0;
+        }
+
+        .review-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 12px;
+        }
+
+        .review-avatar {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--accent);
+        }
+
+        .reviewer-info h4 {
+            font-size: 0.95rem;
+            color: #FFFFFF;
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+
+        .stars {
+            color: #FFD700;
+            font-size: 0.8rem;
+        }
+
+        .review-text {
+            color: #D1D5DB;
+            font-size: 0.85rem;
+            line-height: 1.5;
+            font-style: italic;
+        }
+
+        @keyframes scrollMarquee {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                /* Shifts exactly half the width of total continuous block (6 cards) */
+                transform: translateX(calc(-345px * 6)); 
+            }
+        }
+
+        /* Footer Main Layout */
         footer {
             background-color: var(--navy-blue);
             color: #FFFFFF;
@@ -432,7 +517,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 40px;
-            margin-bottom: 50px;
+            margin-bottom: 20px;
         }
 
         .footer-col h3 {
@@ -900,6 +985,142 @@
                 </div>
             </div>
         </div>
+
+        <!-- Dynamic Moving Reviews Marquee (Right to Left) -->
+        <div class="marquee-container">
+            <div class="marquee-title">What Our Customers Say</div>
+            <div class="marquee-track">
+                <!-- Review 1 (African Name - Black Portrait) -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&h=100&q=80" alt="Sipho M." class="review-avatar">
+                        <div class="reviewer-info">
+                            <h4>Sipho Mthembu</h4>
+                            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        </div>
+                    </div>
+                    <div class="review-text">"Best service! Moved my flat from JHB to Durban without a single scratch. Highly recommend Somtaki."</div>
+                </div>
+                <!-- Review 2 (English Name - Eurocentric Portrait) -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=100&h=100&q=80" alt="Chantal S." class="review-avatar">
+                        <div class="reviewer-info">
+                            <h4>Chantal Swart</h4>
+                            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        </div>
+                    </div>
+                    <div class="review-text">"The crew was incredibly professional and fast. Took the stress out of our office relocation entirely."</div>
+                </div>
+                <!-- Review 3 (African Name - Black Portrait) -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=100&h=100&q=80" alt="Thabiso K." class="review-avatar">
+                        <div class="reviewer-info">
+                            <h4>John Searl</h4>
+                            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        </div>
+                    </div>
+                    <div class="review-text">"Affordable shared load pricing to Limpopo. They kept me updated throughout the entire route."</div>
+                </div>
+                <!-- Review 4 (African Name - Black Portrait) -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&w=100&h=100&q=80" alt="Naledi M." class="review-avatar">
+                        <div class="reviewer-info">
+                            <h4>Mariam San</h4>
+                            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        </div>
+                    </div>
+                    <div class="review-text">"Excellent packaging service! They wrapped my mirrors and delicate furniture beautifully."</div>
+                </div>
+                <!-- Review 5 (English Name - Eurocentric Portrait) -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=100&h=100&q=80" alt="Duan B." class="review-avatar">
+                        <div class="reviewer-info">
+                            <h4>Duan Beyers</h4>
+                            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        </div>
+                    </div>
+                    <div class="review-text">"Used them for vehicle hauling from Cape Town up to Gauteng. Brilliant communication and execution."</div>
+                </div>
+                <!-- Review 6 (African Name - Black Portrait) -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <img src="https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?auto=format&fit=crop&w=100&h=100&q=80" alt="Zama Z." class="review-avatar">
+                        <div class="reviewer-info">
+                            <h4>Nancy White</h4>
+                            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        </div>
+                    </div>
+                    <div class="review-text">"Friendly staff and exceptional service. Somtaki Logistics makes moving houses absolute bliss."</div>
+                </div>
+
+                <!-- Duplicate set for seamless, infinite looping effect -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&h=100&q=80" alt="Sipho M." class="review-avatar">
+                        <div class="reviewer-info">
+                            <h4>Sipho Mthembu</h4>
+                            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        </div>
+                    </div>
+                    <div class="review-text">"Best service! Moved my flat from JHB to Durban without a single scratch. Highly recommend Somtaki."</div>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=100&h=100&q=80" alt="Chantal S." class="review-avatar">
+                        <div class="reviewer-info">
+                            <h4>Chantal Swart</h4>
+                            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        </div>
+                    </div>
+                    <div class="review-text">"The crew was incredibly professional and fast. Took the stress out of our office relocation entirely."</div>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=100&h=100&q=80" alt="Thabiso K." class="review-avatar">
+                        <div class="reviewer-info">
+                            <h4>Thabiso Khoza</h4>
+                            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        </div>
+                    </div>
+                    <div class="review-text">"Affordable shared load pricing to Limpopo. They kept me updated throughout the entire route."</div>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&w=100&h=100&q=80" alt="Naledi M." class="review-avatar">
+                        <div class="reviewer-info">
+                            <h4>Susan Van de Ver</h4>
+                            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        </div>
+                    </div>
+                    <div class="review-text">"Excellent packaging service! They wrapped my mirrors and delicate furniture beautifully."</div>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=100&h=100&q=80" alt="Duan B." class="review-avatar">
+                        <div class="reviewer-info">
+                            <h4>Duan Beyers</h4>
+                            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        </div>
+                    </div>
+                    <div class="review-text">"Used them for vehicle hauling from Cape Town up to Gauteng. Brilliant communication and execution."</div>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <img src="https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?auto=format&fit=crop&w=100&h=100&q=80" alt="Zama Z." class="review-avatar">
+                        <div class="reviewer-info">
+                            <h4>Zandea Pearl</h4>
+                            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        </div>
+                    </div>
+                    <div class="review-text">"Friendly staff and exceptional service. Somtaki Logistics makes moving houses absolute bliss."</div>
+                </div>
+            </div>
+        </div>
+
         <div class="copyright">
             &copy; 2026 Somtaki Logistics. All Rights Reserved.
         </div>
